@@ -14,7 +14,9 @@
 <ul>
   <% @orders.each do |order| %>
     <li><%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "_top" %></li>
-    <%= order.line_items %>
+    <%= order.line_items.each do |item| %>
+    <li><%= item.attributes['title'] %></li>
+    <% end %>
     <hr>
   <% end %>
 </ul>
