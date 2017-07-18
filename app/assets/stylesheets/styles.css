@@ -1,5 +1,6 @@
 html {
   color: #212B35;
+  font-family: Montserrat, Helvetica, sans-serif;
 }
 
 a {
@@ -17,4 +18,8 @@ ul {
 li {
     padding: 10px;
     font-family: helvetica, sans-serif;
+}
+
+.order-list-item {
+    margin-left: 1em;
 }
