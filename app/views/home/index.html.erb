@@ -12,6 +12,13 @@
 <h2>Products</h2>
 
 <ul>
+  <% @products.each do |product| %>
+    <li><%= link_to product.name, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "_top" %></li>
+    <hr>
+  <% end %>
+</ul>
+
+<!-- <ul>
   <% @orders.each do |order| %>
     <li><%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "_top" %></li>
     <% order.line_items.each do |item| %>
@@ -19,4 +26,4 @@
     <% end %>
     <hr>
   <% end %>
-</ul>
+</ul> -->
