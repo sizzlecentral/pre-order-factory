@@ -11,6 +11,10 @@ a:hover {
   color: #47C1BF;
 }
 
+hr {
+  color: #E0F5F5;
+}
+
 ul {
     list-style-type: none;
 }
