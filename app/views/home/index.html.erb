@@ -9,30 +9,24 @@
   </script>
 <% end %>
 
-<h2>Products</h2>
+<body>
 
-<ul>
-  <%= @products.each do |product| %>
-    <li><%= link_to product.title, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "blank" %></li>
-      <% @orders.each do |order| %>
-        <% order.line_items.each do |item| %>
-          <% if item.attributes['product_id'] == product.id %>
-            <div class="order-list-item">
-              <%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "blank" %><br>
-            </div>
+  <h2>Products</h2>
+
+  <ul>
+    <%= @products.each do |product| %>
+      <li><%= link_to product.title, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "blank" %></li>
+        <% @orders.each do |order| %>
+          <% order.line_items.each do |item| %>
+            <% if item.attributes['product_id'] == product.id %>
+              <div class="order-list-item">
+                <%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "blank" %><br>
+              </div>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
-    <hr>
-  <% end %>
-</ul>
-
-<!-- <ul>
-  <% @orders.each do |order| %>
-    <li><%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "_top" %></li>
-    <% order.line_items.each do |item| %>
-    <li><%= link_to item.attributes['title'], "https://#{@shop_session.url}/admin/products/#{item.attributes['product_id']}", target: "blank"  %></li>
+      <hr>
     <% end %>
-    <hr>
-  <% end %>
-</ul> -->
+  </ul>
+
+</body>
