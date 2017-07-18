@@ -3,6 +3,10 @@ html {
   font-family: Montserrat, Helvetica, sans-serif;
 }
 
+body {
+  width: 80%;
+}
+
 a {
   color: #212B35;
 }
