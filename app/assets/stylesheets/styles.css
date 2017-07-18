@@ -1,3 +1,15 @@
+html {
+  color: #212B35;
+}
+
+a {
+  color: #00848E;
+}
+
+a:hover {
+  color: #47C1BF;
+}
+
 ul {
     list-style-type: none;
 }
