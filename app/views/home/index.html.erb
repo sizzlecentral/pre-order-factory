@@ -13,7 +13,7 @@
 
 <ul>
   <%= @products.each do |product| %>
-    <%= link_to image_tag(product.featured_image) %>
+    <%= image_tag(product.featured_image) %>
     <li><%= link_to product.title, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "blank" %></li>
       <% @orders.each do |order| %>
         <% order.line_items.each do |item| %>
