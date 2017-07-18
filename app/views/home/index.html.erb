@@ -20,6 +20,7 @@
           <li><%= link_to item.attributes['name'], "https://#{@shop_session.url}/admin/orders/#{item.attributes['order_id']}", target: "blank"  %></li>
         <% end %>
       <% end %>
+    <% end %>
     <hr>
   <% end %>
 </ul>
