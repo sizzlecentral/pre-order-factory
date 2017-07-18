@@ -17,7 +17,7 @@
     <% @orders.each do |order| %>
       <% order.line_items.each do |item| %>
         <% if item.attributes['product_id'] == product.id %>
-          <li><%= link_to item.attributes['name'], "https://#{@shop_session.url}/admin/orders/#{item.attributes['order_id']}", target: "blank"  %></li>
+          <li><%= puts 'booya' %></li>
         <% end %>
       <% end %>
     <% end %>
