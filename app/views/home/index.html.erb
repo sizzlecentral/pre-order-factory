@@ -12,11 +12,14 @@
 <h2>Products</h2>
 
 <ul>
-  <% @orders.each do |order| %>
-    <li><%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "_top" %></li>
-    <% order.line_items.each do |item| %>
-    <li><%= link_to item.attributes['title'], "https://#{@shop_session.url}/admin/products/#{item.attributes['product_id']}", target: "blank"  %></li>
-    <% end %>
+  <% @products.each do |product| %>
+    <li><%= link_to product.name, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "_top" %></li>
+    <% @orders.each do |order| %>
+      <% order.line_items.each do |item| %>
+        <% if item.attributes['product_id'] == product.id %>
+          <li><%= link_to item.attributes['name'], "https://#{@shop_session.url}/admin/orders/#{item.attributes['order_id']}", target: "blank"  %></li>
+        <% end %>
+      <% end %>
     <hr>
   <% end %>
 </ul>
