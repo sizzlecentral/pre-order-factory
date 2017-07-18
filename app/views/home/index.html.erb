@@ -14,14 +14,16 @@
 <ul>
   <% @products.each do |product| %>
     <li><%= link_to product.title, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "blank" %></li>
+    <ul class="order-list">
       <% @orders.each do |order| %>
         <% order.line_items.each do |item| %>
           <% if item.attributes['product_id'] == product.id %>
-            <%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "blank" %></li>
+            <li><%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "blank" %></li><br>
           <% end %>
         <% end %>
       <% end %>
     <hr>
+    </ul>
   <% end %>
 </ul>
 
