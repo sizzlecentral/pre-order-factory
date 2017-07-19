@@ -20,7 +20,8 @@ a:hover {
 }
 
 hr {
-    border: 1px solid #DFE4E8;
+  border: 1px solid #DFE4E8;
+  clear: both;
 }
 
 ul {
@@ -28,10 +29,37 @@ ul {
 }
 
 li {
-    padding: 10px;
-    font-family: helvetica, sans-serif;
+  padding-bottom: 1em;
+  font-family: helvetica, sans-serif;
+}
+
+img {
+  display: inline-block;
+  float: left;
+  padding: 1em;
+}
+
+.product-box {
+  background-color: white;
+  border: 1px solid rgba(195,207,216,0.3);
+  border-radius: 1px;
+  clear: both;
+  overflow: hidden;
+  margin-bottom: 3px;
+}
+
+.product-box:hover {
+  background-color: rgba(195,207,216,0.3);
+}
+
+.product-text-box {
+  float: left;
+  padding: 1em;
+  padding-top: 2em;
 }
 
 .order-list-item {
-    margin-left: 1em;
+  clear: both;
+  float: left;
+  margin-left: 4em;
 }
