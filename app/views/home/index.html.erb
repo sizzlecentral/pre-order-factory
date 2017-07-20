@@ -39,12 +39,4 @@
     <% end %>
   </ul>
 
-  <ul>
-    <% @assets.each do |asset| %>
-      <% if asset.attributes["key"] == "layout/theme.liquid" %>
-        <li> <%= asset.attributes %> </li>
-      <% end %>
-    <% end %>
-  </ul>
-
 </body>
