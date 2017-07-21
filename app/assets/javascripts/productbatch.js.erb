@@ -1,17 +1,28 @@
-console.log("Inside product-batch js file");
-
 if (Shopify.theme.name == 'Pop') {
   var aboveProductDescription = document.querySelector('.product-single__desc.rte');
+  var addButton = document.querySelector('#addToCart-product-template');
 } else if (Shopify.theme.name == 'Narrative') {
   var aboveProductDescription = document.querySelector('.product__description.rte');
-} else if (Shopify.theme.name == 'Minimal' || 'Jumpstart') {
+  var addButton = document.querySelector('.primary-text');
+} else if (Shopify.theme.name == 'Minimal') {
   var aboveProductDescription = document.querySelector('.product-description.rte');
   var addButton = document.querySelector('#AddToCart');
+} else if (Shopify.theme.name == 'Jumpstart') {
+  var aboveProductDescription = document.querySelector('.product-description.rte');
+  var addButton = document.querySelector('#AddToCart-product-template');
 } else if (Shopify.theme.name == 'Supply') {
   var aboveProductDescription = document.querySelector('.product-description.rte');
-  var addButton = document.querySelector('#addToCart-product-template'); // Working in console only
+  var addButton = document.querySelector('#addToCart-product-template');
+} else if (Shopify.theme.name == 'Simple') {
+  var aboveProductDescription = document.querySelector('.product-single__description');
+  var addButton = document.querySelector('#AddToCart');
+} else if (Shopify.theme.name == 'Brooklyn') {
+  var aboveProductDescription = document.querySelector('.product-single__description');
+  var addButton = document.querySelector('#AddToCart--product-template');
 } else {
   var aboveProductDescription = document.querySelector('.product-single__description');
+  var addButton = document.querySelector('#AddToCart-product-template');
+  // This is for the debut, Boundless & Venture themes
 }
 
 var heading = document.createElement('h1');
