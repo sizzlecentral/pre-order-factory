@@ -1,0 +1,1 @@
+<div id ="preOrderFactory" data-id="{{product.id}}" > <script src="http://66bd9c8d.ngrok.io/assets/productbatch.js"></script></div>
