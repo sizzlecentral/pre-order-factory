@@ -12,26 +12,26 @@
 
 ActiveRecord::Schema.define(version: 20170720183452) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+	# These are extensions that must be enabled in order to support this database
+	enable_extension "plpgsql"
 
-  create_table "batches", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "product_id"
-    t.date "start_date"
-    t.date "end_date"
-    t.integer "min_quantity"
-    t.integer "num_sold"
-    t.boolean "active"
-  end
+	create_table "batches", force: :cascade do |t|
+		t.datetime "created_at", null: false
+		t.datetime "updated_at", null: false
+		t.bigint "product_id"
+		t.date "start_date"
+		t.date "end_date"
+		t.integer "min_quantity"
+		t.integer "num_sold"
+		t.boolean "active"
+	end
 
-  create_table "shops", force: :cascade do |t|
-    t.string "shopify_domain", null: false
-    t.string "shopify_token", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["shopify_domain"], name: "index_shops_on_shopify_domain", unique: true
-  end
+	create_table "shops", force: :cascade do |t|
+		t.string "shopify_domain", null: false
+		t.string "shopify_token", null: false
+		t.datetime "created_at", null: false
+		t.datetime "updated_at", null: false
+		t.index ["shopify_domain"], name: "index_shops_on_shopify_domain", unique: true
+	end
 
 end
