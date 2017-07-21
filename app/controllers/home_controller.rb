@@ -5,4 +5,6 @@ class HomeController < ShopifyApp::AuthenticatedController
     @themes = ShopifyAPI::Theme.find(:all)
     @batches = Batch.all
   end
+
+  
 end
