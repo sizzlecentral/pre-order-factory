@@ -1,48 +1,54 @@
 <% content_for :javascript do %>
-  <script type="text/javascript">
-    ShopifyApp.ready(function(){
-      ShopifyApp.Bar.initialize({
-        title: "Home",
-        icon: "<%= asset_path('favicon.ico') %>"
-      });
-    });
-  </script>
+	<script type="text/javascript">
+		ShopifyApp.ready(function(){
+			ShopifyApp.Bar.initialize({
+				title: "Home",
+				icon: "<%= asset_path('favicon.ico') %>"
+			});
+		});
+	</script>
 <% end %>
 
 <body>
 
-  <h2>Products</h2>
+	<h2>Products</h2>
 
-  <ul>
-    <% @products.each do |product| %>
-      <div class="product-box">
-        <li>
-          <%= image_tag(product.attributes["images"][0].src, height: 50) %>
-          <div class="product-text-box">
-            <%= link_to product.title, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "blank" %>
-          </div>
-        </li>
-        <ul>
-          <% @orders.each do |order| %>
-            <% order.line_items.each do |item| %>
-              <% if item.attributes['product_id'] == product.id %>
-                <div class="order-list-item">
-                  <li>
-                    <%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "blank" %>
-                  </li>
-                </div>
-              <% end %>
-            <% end %>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-  </ul>
+	<%= form_tag("/search", method: "get") do %>
+		<%= label_tag(:q, "Search for:") %>
+		<%= text_field_tag(:q) %>
+		<%= submit_tag("Search") %>
+	<% end %>
 
-  <ul>
-    <% @themes.each do |theme| %>
-      <li><%= theme.name %></li>
-    <% end %>
-  </ul>
+	<ul>
+		<% @products.each do |product| %>
+			<div class="product-box">
+				<li>
+					<%= image_tag(product.attributes["images"][0].src, height: 50) %>
+					<div class="product-text-box">
+						<%= link_to product.title, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "blank" %>
+					</div>
+				</li>
+				<ul>
+					<% @orders.each do |order| %>
+						<% order.line_items.each do |item| %>
+							<% if item.attributes['product_id'] == product.id %>
+								<div class="order-list-item">
+									<li>
+										<%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "blank" %>
+									</li>
+								</div>
+							<% end %>
+						<% end %>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+	</ul>
+
+	<ul>
+		<% @themes.each do |theme| %>
+			<li><%= theme.name %></li>
+		<% end %>
+	</ul>
 
 </body>
