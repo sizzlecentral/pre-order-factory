@@ -1,10 +1,11 @@
 Rails.application.configure do
 	# Settings specified here will take precedence over those in config/application.rb.
 
-	config.public_url = 'https://5a6bfa4a.ngrok.io'
 
-	config.shopify_api_key = ENV['SHOPIFY_API_KEY']
-	config.shopify_secret = ENV['SHOPIFY_SECRET']
+  config.public_url = 'https://3e6c4da1.ngrok.io'
+
+  config.shopify_api_key = "627c435a06c69e6094eaae3ece3e91d1"
+  config.shopify_secret = "59a79473b29239eaf0c3bb7fe985fbbf"
 
 	# In the development environment your application's code is reloaded on
 	# every request. This slows down response time but is perfect for development

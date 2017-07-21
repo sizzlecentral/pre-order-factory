@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-	root :to => 'home#index'
 
-	get '/search' => 'searches#results'
+  root :to => 'home#index'
+  
+  mount ShopifyApp::Engine, at: '/'
+  
+  resources :batches
+  get '/search' => 'searches#results'
 
-	mount ShopifyApp::Engine, at: '/'
-	# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
