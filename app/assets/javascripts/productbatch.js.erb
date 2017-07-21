@@ -1,8 +1,23 @@
 console.log("Inside product-batch js file");
 
+if (Shopify.theme.name == 'Pop') {
+  var aboveProductDescription = document.querySelector('.product-single__desc.rte');
+} else if (Shopify.theme.name == 'Narrative') {
+  var aboveProductDescription = document.querySelector('.product__description.rte');
+} else if (Shopify.theme.name == 'Minimal' || 'Jumpstart') {
+  var aboveProductDescription = document.querySelector('.product-description.rte');
+  var addButton = document.querySelector('#AddToCart');
+} else if (Shopify.theme.name == 'Supply') {
+  var aboveProductDescription = document.querySelector('.product-description.rte');
+  var addButton = document.querySelector('#addToCart-product-template'); // Working in console only
+} else {
+  var aboveProductDescription = document.querySelector('.product-single__description');
+}
+
 var heading = document.createElement('h1');
-var aboveProductTitle = document.querySelector('div.product-single');
 
 heading.innerHTML = preOrderFactory.getAttribute('data-id');
 heading.innerHTML += " is the id for this product.";
-aboveProductTitle.prepend(heading);
+aboveProductDescription.prepend(heading);
+
+addButton.innerHTML = 'Pre-Order';

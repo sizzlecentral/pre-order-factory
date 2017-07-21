@@ -1,1 +1,27 @@
 <div id ="preOrderFactory" data-id="{{product.id}}" > <script src="http://66bd9c8d.ngrok.io/assets/productbatch.js"></script></div>
+
+Works:
+
+- Debut
+- Boundless
+- Simple
+- Venture
+- Brooklyn
+
+<div id ="preOrderFactory" data-id="{{product.id}}" > <script src="http://66bd9c8d.ngrok.io/assets/productbatch2.js"></script></div>
+
+Works:
+
+- Minimal (not button)
+- Supply (both)
+- Jumpstart
+
+<div id ="preOrderFactory" data-id="{{product.id}}" > <script src="http://66bd9c8d.ngrok.io/assets/productbatch3.js"></script></div>
+
+Works:
+
+- Narrative
+
+<div id ="preOrderFactory" data-id="{{product.id}}" > <script src="http://66bd9c8d.ngrok.io/assets/productbatch4.js"></script></div>
+
+- Pop (mobile-first)
