@@ -4,4 +4,6 @@ class HomeController < ShopifyApp::AuthenticatedController
     @orders = ShopifyAPI::Order.find(:all)
     @batches = Batch.all
   end
+
+  
 end
