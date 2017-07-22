@@ -9,14 +9,12 @@
 	</script>
 <% end %>
 
-<body>
-
-  <h2>Products</h2>
-
   <%= form_tag("/search", method: "get") do %>
-		<%= label_tag(:q, "Search for:") %>
-		<%= text_field_tag(:q) %>
-		<%= submit_tag("Search") %>
+  		<%= label_tag(:q, "Search Products:") %>
+      <div class='search-bar'>
+    		<%= text_field_tag(:q) %>
+    		<%= submit_tag("Search") %>
+      </div>
 	<% end %>
 
   <ul>
@@ -45,5 +43,3 @@
       </div>
     <% end %>
   </ul>
-
-</body>
