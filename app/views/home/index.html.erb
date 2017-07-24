@@ -26,7 +26,7 @@
           <%= image_tag(product.attributes["images"][0].src, height: 50) %>
           <div class="product-text-box">
             <%= link_to product.title, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "blank" %><br>
-            <p class='batch-link'><%= link_to "Create / Edit / View Batches", batches_path(id: product.id) %></p>
+            <p class='batch-link'><%= link_to "Create / Edit / View Batches", home_path(id: product.id) %></p>
           </div>
         </li>
         <ul>

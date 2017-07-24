@@ -11,6 +11,10 @@
   <% end %>
 
   <div class="field">
+    <% f.number_field :product_id, :value => @product.id %>
+  </div>
+  
+  <div class="field">
     <strong><%= f.label :active %></strong><br />
     <strong><%= f.check_box :active %></strong><br />
 

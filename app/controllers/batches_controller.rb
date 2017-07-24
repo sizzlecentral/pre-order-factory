@@ -2,15 +2,20 @@ class BatchesController < ApplicationController
 
   def index
     @batches = Batch.all
-    @batch = Batch.new
+
+    respond_to do |format|
+      format.json {render json: @batches}
+    end
+
   end
 
   def create
     @batch = Batch.new(batch_params)
+    @id = batch_params[:product_id]
     if @batch.save
-      redirect_to root
+      redirect_to home_path(id: @id)
     else
-      render :new
+      # render :new
     end
   end
 

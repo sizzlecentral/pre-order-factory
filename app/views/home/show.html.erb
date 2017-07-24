@@ -1,0 +1,13 @@
+<h1>THIS IS THE PRODUCT ID: <%= @product.title %></h1>
+
+<div class="batch-form">
+  <%= render 'form', {batch: @batch, product: @product} %>
+</div>
+
+<ol>
+  <% @batches.each do |batch| %>
+    <li>
+      Batch: <%= batch.id %> - Product: <%= batch.product_id %> / Start date: <%= batch.start_date %> / End date: <%= batch.end_date %> / Number sold: <%= batch.num_sold %> / Active: <%= batch.active %>
+    </li>
+  <% end %>
+</ol>
