@@ -135,3 +135,8 @@ label {
 .new-batch-form {
   width: 50%;
 }
+
+input#batch_start_date, input#batch_end_date {
+  font-family: Montserrat, Helvetica, sans-serif;
+  font-size: 1rem;
+}
