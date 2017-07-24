@@ -19,6 +19,10 @@ class BatchesController < ApplicationController
     end
   end
 
+  def show
+    @batch = Batch.find(params[:id])
+  end
+
   private
 
   def batch_params

@@ -26,7 +26,7 @@
         <% if batch.active == false && batch.end_date < Date.today %>
           <hr class="dotted2">
           <li>
-            <%= link_to "Batch # #{batch.id} - Start date: #{batch.start_date} / End date: #{batch.end_date}", batch_path %>
+            <%= link_to "Batch # #{batch.id} - Start date: #{batch.start_date} / End date: #{batch.end_date}", batch_path(id: batch.id) %>
           </li>
         <% end %>
       <% end %>
