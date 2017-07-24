@@ -8,10 +8,6 @@ body {
   margin: auto;
 }
 
-h2 {
-  margin-left: 1em;
-}
-
 a {
   color: #212B35;
 }
@@ -20,16 +16,9 @@ a:hover {
   color: #47C1BF;
 }
 
-hr {
-  margin-top: 5rem;
-  margin-left: 2.7rem;
-  border-top: .5px dashed #DFE4E8;
-  width: 95%;
-  clear: both;
-}
-
 ul {
   list-style-type: none;
+  padding: inherit;
 }
 
 ol {
@@ -47,16 +36,13 @@ img {
   padding: 1em;
 }
 
-form {
-  margin-left: 2.1rem;
-}
-
 input#q, input#batch_start_date, input#batch_end_date, input#batch_min_quantity {
   clear: both;
   width: 98%;
   padding: 1.5rem 0 1.5rem 1.4rem;
   margin: .5rem 0 .5rem .1rem;
   font-size: 1rem;
+  font-family: Montserrat, Helvetica, sans-serif;
   border: 2.5px solid rgba(195,207,216,0.3);
   border-radius: 1px;
   display: inline-block;
@@ -132,11 +118,25 @@ label {
   color: #47C1BF;
 }
 
-.new-batch-form {
+.batch-list {
   width: 50%;
+  float: left;
 }
 
-input#batch_start_date, input#batch_end_date {
-  font-family: Montserrat, Helvetica, sans-serif;
-  font-size: 1rem;
+.dotted {
+  margin-top: 5rem;
+  border-top: .5px dashed #DFE4E8;
+  width: 98%;
+  clear: both;
+}
+
+.dotted2 {
+  margin-top: 1rem;
+  border-top: .5px dashed #DFE4E8;
+  width: 98%;
+  clear: both;
+}
+
+.clearfix {
+  clear: both;
 }

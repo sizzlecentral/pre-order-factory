@@ -20,13 +20,17 @@
       <%= f.label :active %><br />
       <%= f.check_box :active %><br />
     </div>
+    <hr class="dotted2">
 
     <br>
+
     <div class="field">
       <%= f.label :start_date %><br />
       <%= f.date_field :start_date %>
     </div>
+
     <br>
+
     <div class="field">
       <%= f.label :end_date %><br />
       <%= f.date_field :end_date %>
@@ -38,12 +42,15 @@
       <%= f.label :min_quantity %><br />
       <%= f.number_field :min_quantity %>
     </div>
+
     <br>
+
     <div class="actions">
       <div class="button">
         <%= f.submit %>
       </div>
     </div>
+
   <% end %>
 
 </div>

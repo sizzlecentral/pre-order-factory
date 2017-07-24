@@ -1,13 +1,36 @@
-<h1>THIS IS THE PRODUCT ID: <%= @product.title %></h1>
+<% content_for :javascript do %>
+	<script type="text/javascript">
+		ShopifyApp.ready(function(){
+			ShopifyApp.Bar.initialize({
+				title: "Product Batches",
+				icon: "<%= asset_path('favicon.ico') %>"
+			});
+		});
+	</script>
+<% end %>
 
-<div class="batch-form">
-  <%= render 'form', {batch: @batch, product: @product} %>
-</div>
+<h2 class='product-title'><%= link_to @product.title, "https://#{@shop_session.url}/admin/products/#{@product.id}", target: "blank" %></h2>
 
-<ol>
-  <% @batches.each do |batch| %>
-    <li>
-      Batch: <%= batch.id %> - Product: <%= batch.product_id %> / Start date: <%= batch.start_date %> / End date: <%= batch.end_date %> / Number sold: <%= batch.num_sold %> / Active: <%= batch.active %>
-    </li>
+<div class="batch-list">
+  <strong><p>Create a new pre-order batch for this product:</p></strong>
+  <hr class="dotted2">
+  <div class="batch-form">
+    <%= render 'form', {batch: @batch, product: @product} %>
+  </div>
+  <div class='clearfix'></div>
+
+  <% if @batches.count > 0 %>
+    <strong><p>View previous batches of this product:<p></strong>
+    <ul>
+      <% @batches.each do |batch| %>
+        <% if batch.active == false && batch.end_date < Date.today %>
+          <hr class="dotted2">
+          <li>
+            <%= link_to "Batch # #{batch.id} - Start date: #{batch.start_date} / End date: #{batch.end_date}", batch_path %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
   <% end %>
-</ol>
+
+</div>
