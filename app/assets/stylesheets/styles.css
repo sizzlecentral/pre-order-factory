@@ -32,6 +32,10 @@ ul {
   list-style-type: none;
 }
 
+ol {
+  clear: both;
+}
+
 li {
   padding-bottom: 1em;
   font-family: helvetica, sans-serif;
@@ -126,4 +130,13 @@ label {
 
 .batch-link a:hover {
   color: #47C1BF;
+}
+
+.new-batch-form {
+  width: 50%;
+}
+
+input#batch_start_date, input#batch_end_date {
+  font-family: Montserrat, Helvetica, sans-serif;
+  font-size: 1rem;
 }
