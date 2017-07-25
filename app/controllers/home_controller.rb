@@ -11,8 +11,20 @@ class HomeController < ShopifyApp::AuthenticatedController
   def show
     @product = ShopifyAPI::Product.find(params[:id])
     @batches = Batch.where(product_id: params[:id])
-    # @batches = Batch.all
     @batch = Batch.new
+  end
+
+  def batchshow
+    @batch = Batch.find(params[:id])
+    @products = ShopifyAPI::Product.find(:all)
+    @orders = ShopifyAPI::Order.find(:all)
+
+    @products.each do |product|
+      if @batch.product_id == product.id
+        @product = product
+      end
+    end
+
   end
 
 end
