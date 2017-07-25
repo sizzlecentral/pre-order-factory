@@ -13,6 +13,7 @@ class BatchesController < ApplicationController
     @batch = Batch.new(batch_params)
     @id = batch_params[:product_id]
     if @batch.save
+      flash[:alert] = "The batch has been created"
       redirect_to home_path(id: @id)
     else
       # render :new
@@ -25,6 +26,7 @@ class BatchesController < ApplicationController
 
   def update
     @batch = Batch.find(params[:id])
+    @id = batch_params[:product_id]
     if @batch.update(batch_params)
       flash[:alert] = "The batch has been updated"
       redirect_to home_path(id: @id)

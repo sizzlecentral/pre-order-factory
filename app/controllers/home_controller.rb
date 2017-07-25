@@ -27,4 +27,20 @@ class HomeController < ShopifyApp::AuthenticatedController
 
   end
 
+  def batchedit
+    @batch = Batch.find(params[:id])
+    @product = ShopifyAPI::Product.find(@batch.product_id)
+  end
+
+  def batchupdate
+    @batch = Batch.find(params[:id])
+    @product = ShopifyAPI::Product.find(params[:id])
+    if @batch.update(params.permit(:start_date, :end_date, :min_quantity, :active))
+      flash[:alert] = "The batch has been updated"
+      redirect_to home_path
+    else
+      redirect_back_or_to @batch
+    end
+  end
+
 end
