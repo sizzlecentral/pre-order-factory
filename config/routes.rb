@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   root :to => 'home#index'
 
   resources :home
-  resources :batches, :except => [:show, :edit, :update]
+  resources :batches, :except => [:show, :edit]
+
   get '/batches/:id' => 'home#batchshow'
-  patch '/batches/:id(.:format)', to: 'home#batchupdate', as: 'edit_batch'
+  get '/batches/:id/edit(.:format)', to: 'home#batchedit', as: 'edit_batch'
+  patch '/batches/:id/(.:format)', to: 'home#batchupdate'
   get '/search' => 'searches#results'
 
 end
