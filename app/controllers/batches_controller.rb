@@ -19,8 +19,18 @@ class BatchesController < ApplicationController
     end
   end
 
-  def show
+  def edit
     @batch = Batch.find(params[:id])
+  end
+
+  def update
+    @batch = Batch.find(params[:id])
+    if @batch.update(batch_params)
+      flash[:alert] = "The batch has been updated"
+      redirect_to home_path(id: @id)
+    else
+      redirect_back_or_to @batch
+    end
   end
 
   private

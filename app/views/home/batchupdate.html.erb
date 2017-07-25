@@ -1,0 +1,20 @@
+<% content_for :javascript do %>
+	<script type="text/javascript">
+		ShopifyApp.ready(function(){
+			ShopifyApp.Bar.initialize({
+				title: "Update Batch",
+				icon: "<%= asset_path('favicon.ico') %>"
+			});
+		});
+	</script>
+<% end %>
+
+<div class="batch-list">
+  <strong><p class='p-heading'>Update the batch for this product:</p></strong>
+  <hr class="dotted2">
+  <div class="batch-form">
+    <%= render 'form', {batch: @batch, product: @product} %>
+  </div>
+  <br>
+  <br>
+</div>

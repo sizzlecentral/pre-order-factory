@@ -12,6 +12,7 @@
 <% amount_sold = [] %>
 
 <h2 class='product-title'>Batch # <%= @batch.id %> - <%= link_to @product.title, "https://#{@shop_session.url}/admin/products/#{@product.id}", target: "blank" %></h2>
+<%= link_to 'Edit Batch', edit_batch_path(batch: @batch) %>
 
 <div class='active-batch'>
   <strong><p class='p-heading'>Product id:</p></strong>

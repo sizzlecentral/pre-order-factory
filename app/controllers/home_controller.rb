@@ -17,14 +17,14 @@ class HomeController < ShopifyApp::AuthenticatedController
   def batchshow
     @batch = Batch.find(params[:id])
     @products = ShopifyAPI::Product.find(:all)
+    @orders = ShopifyAPI::Order.find(:all)
 
     @products.each do |product|
-      if @batch.product_id == product.id 
+      if @batch.product_id == product.id
         @product = product
       end
     end
 
-    @orders = ShopifyAPI::Order.find(:all)
   end
 
 end
