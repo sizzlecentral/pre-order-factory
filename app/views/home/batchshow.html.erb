@@ -9,6 +9,8 @@
 	</script>
 <% end %>
 
+<% amount_sold = [] %>
+
 <h2 class='product-title'>Batch # <%= @batch.id %> - <%= link_to @product.title, "https://#{@shop_session.url}/admin/products/#{@product.id}", target: "blank" %></h2>
 
 <div class='active-batch'>
@@ -32,8 +34,16 @@
 
   <hr class="dotted2">
 
+  <% @orders.each do |order| %>
+    <% order.line_items.each do |item| %>
+      <% if item.attributes['product_id'] == @product.id && order.created_at.to_date > @batch.start_date && order.created_at.to_date < @batch.end_date %>
+        <% amount_sold << item %>
+      <% end %>
+    <% end %>
+  <% end %>
+
   <strong><p class='p-heading'>Amount sold:</p></strong>
-  <p><%= @batch.num_sold %></p>
+  <p><%= amount_sold.count %></p>
 
   <hr class="dotted2">
 
