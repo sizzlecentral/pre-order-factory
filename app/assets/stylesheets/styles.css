@@ -13,7 +13,7 @@ a {
 }
 
 a:hover {
-  color: #47C1BF;
+  color: #00848E;
 }
 
 ul {
@@ -123,6 +123,11 @@ label {
   float: left;
 }
 
+.active-batch {
+  width: 50%;
+  float: left:
+}
+
 .dotted {
   margin-top: 5rem;
   border-top: .5px dashed #DFE4E8;
@@ -139,4 +144,8 @@ label {
 
 .clearfix {
   clear: both;
+}
+
+.p-heading {
+  color: #5C6AC4;
 }
