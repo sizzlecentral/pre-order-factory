@@ -3,7 +3,11 @@ html {
   font-family: Montserrat, Helvetica, sans-serif;
 }
 
-body {
+div {
+  display: inline-block;
+}
+
+body, .main-page {
   width: 90%;
   margin: auto;
 }
@@ -38,16 +42,17 @@ img {
 
 input#q, input#batch_start_date, input#batch_end_date, input#batch_min_quantity {
   clear: both;
-  width: 98%;
-  padding: 1.5rem 0 1.5rem 1.4rem;
-  margin: .5rem 0 .5rem .1rem;
+  width: 100%;
+  padding: 1.5rem;
+  margin-left: .3rem;
+  margin-top: 1.5rem;
+  margin-bottom: .5rem;
   font-size: 1rem;
   font-family: Montserrat, Helvetica, sans-serif;
-  border: 2.5px solid rgba(195,207,216,0.3);
+  border: 1.5px solid rgba(195,207,216,0.3);
   border-radius: 1px;
   display: inline-block;
-  float: left;
-  vertical-align: top;
+  box-sizing: border-box;
 }
 
 input[type="submit"] {
@@ -55,13 +60,12 @@ input[type="submit"] {
   height: 4.2rem;
   border: none;
   border-radius: 1px;
-  margin: .5rem 0 1rem 0;
   font-size: 1rem;
   display: inline-block;
   float: left;
   vertical-align: top;
   margin-top: .59rem;
-  margin-left: .5rem;
+  margin-left: .3rem;
   background-color: #47C1BF;
   color: white;
 }
@@ -85,6 +89,7 @@ label {
   clear: both;
   overflow: hidden;
   margin-bottom: 3px;
+  width: 100%;
 }
 
 .product-box:hover {
@@ -107,7 +112,6 @@ label {
   margin: auto;
   margin-left: -.1rem;
   width: 99%;
-  padding-bottom: 4rem;
 }
 
 .batch-link a {
@@ -124,18 +128,12 @@ label {
 }
 
 .active-batch {
-  width: 50%;
-  float: left:
+  width: 60%;
+  float: left;
+  display: block;
 }
 
 .dotted {
-  margin-top: 5rem;
-  border-top: .5px dashed #DFE4E8;
-  width: 98%;
-  clear: both;
-}
-
-.dotted2 {
   margin-top: 1rem;
   border-top: .5px dashed #DFE4E8;
   width: 98%;
@@ -148,4 +146,11 @@ label {
 
 .p-heading {
   color: #5C6AC4;
+}
+
+.content-right {
+  background-color: yellow;
+  float: left;
+  width: 30%;
+  display: inline-block;
 }
