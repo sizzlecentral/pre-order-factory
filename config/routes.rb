@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   get '/batches/:id/edit(.:format)', to: 'home#batchedit', as: 'edit_batch'
   patch '/batches/:id/(.:format)', to: 'home#batchupdate'
   get '/search' => 'searches#results'
-
+  get '/batches/product/:id' => 'batches#show'
 end

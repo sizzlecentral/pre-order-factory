@@ -1,19 +1,19 @@
 <% content_for :javascript do %>
-	<script type="text/javascript">
-		ShopifyApp.ready(function(){
-			ShopifyApp.Bar.initialize({
-				title: "Home",
-				icon: "<%= asset_path('favicon.ico') %>"
-			});
-		});
-	</script>
+  <script type="text/javascript">
+    ShopifyApp.ready(function(){
+      ShopifyApp.Bar.initialize({
+        title: "Home",
+        icon: "<%= asset_path('favicon.ico') %>"
+      });
+    });
+  </script>
 <% end %>
 
 <%= form_tag("/search", method: "get") do %>
-		<%= label_tag(:q, "Search Products:") %>
+    <%= label_tag(:q, "Search Products:") %>
     <div class='search-bar'>
-  		<%= text_field_tag(:q) %>
-  		<%= submit_tag("Search") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
     </div>
 <% end %>
 

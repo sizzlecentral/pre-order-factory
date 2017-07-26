@@ -1,12 +1,12 @@
 <% content_for :javascript do %>
-	<script type="text/javascript">
-		ShopifyApp.ready(function(){
-			ShopifyApp.Bar.initialize({
-				title: "Product Batches",
-				icon: "<%= asset_path('favicon.ico') %>"
-			});
-		});
-	</script>
+  <script type="text/javascript">
+    ShopifyApp.ready(function(){
+      ShopifyApp.Bar.initialize({
+        title: "Product Batches",
+        icon: "<%= asset_path('favicon.ico') %>"
+      });
+    });
+  </script>
 <% end %>
 
 <h2 class='product-title'><%= link_to @product.title, "https://#{@shop_session.url}/admin/products/#{@product.id}", target: "blank" %></h2>
@@ -14,8 +14,12 @@
 <div class='active-batch'>
   <% if @batches.count > 0 %>
     <strong><p class='p-heading'>View the current batch of this product:<p></strong>
+
       <% @batches.each do |batch| %>
-        <% if batch.end_date > Date.today %>
+
+        <% if batch.end_date.nil? %>
+        <% puts "nil"%>
+        <% elsif batch.end_date > Date.today %>
           <div>
             <hr class="dotted2">
             <%= link_to "Batch # #{batch.id} - Start date: #{batch.start_date} / End date: #{batch.end_date}", batch_path(id: batch.id) %>
@@ -30,9 +34,20 @@
 <div class='clearfix'></div>
 
 <div class="batch-list">
-  <strong><p class='p-heading'>Create a new pre-order batch for this product:</p></strong>
-  <hr class="dotted2">
-  <div class="batch-form">
+
+
+  <button id="toggleButton"><strong><p class='p-heading'>Create a new pre-order batch for this Product</p></strong>
+  </button>
+  <script type="text/javascript">
+
+  toggleButton.addEventListener('click', function() {
+    document.querySelector('.form.collapsed').classList.remove('collapsed');
+    toggleButton.style.visibility = "hidden";
+  });
+  </script>
+
+  <div class="batch-form ">
+
     <%= render 'form', {batch: @batch, product: @product} %>
   </div>
   <br>

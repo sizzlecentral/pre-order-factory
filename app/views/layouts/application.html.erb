@@ -7,7 +7,18 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body >
+    <header>
+      <div class="error_explanation">
+        <% if flash.any? %>
+        <% flash.each do |key, value| %>
+        <h3 class="<%= key %>">
+          <%= value %>
+        </h3>
+        <% end %>
+       <% end %>
+     </div>
+    </header>
     <%= yield %>
   </body>
 </html>

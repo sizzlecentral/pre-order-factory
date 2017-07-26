@@ -1,5 +1,13 @@
-<div class="new-batch-form">
+<div class="new-batch-form form collapsed">
+  <button type="button" name="Close" id = "closeButton">Close</button>
 
+  <script type="text/javascript">
+
+  closeButton.addEventListener('click', function() {
+    document.querySelector('.form').classList.add('collapsed');
+    setTimeout(function(){toggleButton.style.visibility = "";}, 500)
+  });
+  </script>
   <%= form_for (batch) do |f| %>
     <% if batch.errors.any? %>
       <div id="error_explanation">

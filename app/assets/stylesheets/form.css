@@ -1,0 +1,16 @@
+.form {
+  overflow:hidden;
+  transition:max-height 0.3s ease-out;
+  height:auto;
+  max-height:800px;
+}
+.form.collapsed {
+  max-height:0;
+}
+
+#closeButton{
+  background-color: slategrey;
+  color: darkblue;
+  float:right;
+  font-size: 1.5em;
+}

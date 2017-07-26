@@ -1,7 +1,11 @@
 <h1> Search Results </h1>
 
+<%  if params["q"].empty? %>
+<h2>No Matching Results ...</h2>
+<%else %>
 <pre>
 <% @products.each do |product| %>
 <%= product.inspect %>
 <% end %>
 </pre>
+<% end %>

@@ -3,9 +3,14 @@ class BatchesController < ApplicationController
   def index
     @batches = Batch.all
 
-    respond_to do |format|
-      format.json {render json: @batches}
-    end
+    render json: @batches
+
+
+  end
+
+  def show
+    @productbatches = Batch.where(product_id: params[:id])
+    render json: @productbatches
 
   end
 
