@@ -9,56 +9,82 @@
 	</script>
 <% end %>
 
-<h2 class='product-title'>Batch # <%= @batch.id %> - <%= link_to @product.title, "https://#{@shop_session.url}/admin/products/#{@product.id}", target: "blank" %></h2>
-<%= link_to 'Edit Batch', edit_batch_path %>
+<div class='main-page'>
+  <div class='full-column'>
+    <div class='force-width'>
+      <span>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+    </div>
 
-<div class='active-batch'>
-  <strong><p class='p-heading'>Product id:</p></strong>
-  <p><%= @batch.product_id %></p>
+    <div class='home-show'>
 
-  <hr class="dotted">
+      <h2>Batch # <%= @batch.id %><h2>
+      <h1 class='batch-heading'><%= @product.title %></h1>
 
-  <strong><p class='p-heading'>Start date:</p></strong>
-  <p><%= @batch.start_date %></p>
-
-  <hr class="dotted">
-
-  <strong><p class='p-heading'>End date:</p></strong>
-  <p><%= @batch.end_date %></p>
-
-  <hr class="dotted">
-
-  <strong><p class='p-heading'>Minimum quantity:</p></strong>
-  <p><%= @batch.min_quantity %></p>
-
-  <hr class="dotted">
-
-  <strong><p class='p-heading'>Amount sold:</p></strong>
-  <p><%= @batch.num_sold %></p>
-
-  <hr class="dotted">
-
-  <strong><p class='p-heading'>Active:</p></strong>
-  <p><%= @batch.active %></p>
-
-  <hr class="dotted">
-
-  <strong><p class='p-heading'>Orders in this batch:</p></strong>
-
-  <ul>
-    <% @orders.each do |order| %>
-      <% order.line_items.each do |item| %>
-        <% if item.attributes['product_id'] == @product.id && order.created_at.to_date > @batch.start_date && order.created_at.to_date < @batch.end_date %>
-          <li>
-            <%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "blank" %> - <%= order.created_at.to_date %>
-          </li>
-        <% end %>
+      <%= link_to("https://#{@shop_session.url}/admin/products/#{@product.id}", target: "blank") do %>
+        <div class='product-link-box-batch'>
+          <div class='view-box'>
+            <p>View Product</p>
+          </div>
+          <div class='view-box'>
+            <svg width="20px" height="20px">
+              <path d="M17.928 9.628C17.836 9.398 15.61 4 9.998 4S2.163 9.4 2.07 9.628c-.094.24-.094.505 0 .744C2.162 10.602 4.387 16 10 16s7.836-5.4 7.928-5.628c.094-.24.094-.505 0-.744zM9.998 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-6c-1.103 0-2 .896-2 2s.897 2 2 2a2 2 0 1 0 0-4z"></path>
+            </svg>
+          </div>
+        </div>
       <% end %>
-    <% end %>
-  </ul>
 
-</div>
+      <hr>
 
-<div class='content-right'>
-  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+      <h2>Edit the details of this batch:</h2>
+
+      <%= link_to 'Edit Batch', edit_batch_path %>
+
+      <br>
+      <hr>
+
+      <h2>View the details of this batch:</h2>
+
+      <div class='batch-details'>
+        <ul>
+          <li><strong><p>Product id:</p></strong><p><%= @batch.product_id %></p></li>
+          <li><strong><p>Start date:</p></strong><p><%= @batch.start_date %></p></li>
+          <li><strong><p>End date:</p></strong><p><%= @batch.end_date %></p></li>
+          <li><strong><p>Minimum quantity:</p></strong><p><%= @batch.min_quantity %></p></li>
+          <li><strong><p>Amount sold:</p></strong>
+            <p>
+              <% if @batch.num_sold == nil %>
+                <%= p 'None' %>
+              <% else %>
+                <%= @batch.num_sold %>
+              <% end %>
+            </p>
+          </li>
+          <li><strong><p>Batch active:</p></strong><p><%= @batch.active %></p></li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <h2>Orders in this batch:</h2>
+
+      <ul>
+        <% order_count = [] %>
+        <% @orders.each do |order| %>
+          <% order.line_items.each do |item| %>
+            <% if item.attributes['product_id'] == @product.id && order.created_at.to_date > @batch.start_date && order.created_at.to_date < @batch.end_date %>
+              <li>
+                <%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "blank" %> - <%= order.customer.first_name %> <%= order.customer.last_name %> - <%= order.created_at.to_date %>
+              </li>
+              <% order_count << item %>
+            <% end %>
+          <% end %>
+        <% end %>
+        <% if order_count.count == 0 %>
+          <%= p 'None' %>
+        <% end %>
+      </ul>
+
+    </div>
+
+  </div>
 </div>

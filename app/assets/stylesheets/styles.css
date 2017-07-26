@@ -156,12 +156,6 @@ label {
   float: left;
 }
 
-.active-batch {
-  width: 60%;
-  float: left;
-  display: block;
-}
-
 hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -172,10 +166,6 @@ hr {
 
 .clearfix {
   clear: both;
-}
-
-.p-heading {
-  color: #5C6AC4;
 }
 
 .content-right {
@@ -201,6 +191,12 @@ hr {
   margin-left: 1rem;
 }
 
+.product-link-box-batch {
+  float: left;
+  margin-top: 0;
+  margin-left: 1rem;
+}
+
 .force-width {
   visibility: hidden;
   margin-top: -4rem;
@@ -211,10 +207,19 @@ hr {
   width: 100%;
 }
 
+.batch-heading {
+  margin-top: -.5rem;
+}
+
 .field, .actions {
   width: 66%;
 }
 
 .button {
   width: 100%;
+}
+
+.batch-details li {
+  display: inline-block;
+  padding: 2rem;
 }
