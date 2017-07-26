@@ -1,0 +1,55 @@
+<% content_for :javascript do %>
+	<script type="text/javascript">
+		ShopifyApp.ready(function(){
+			ShopifyApp.Bar.initialize({
+				title: "Search Results",
+				icon: "<%= asset_path('favicon.ico') %>"
+			});
+		});
+	</script>
+<% end %>
+
+<div class='main-page'>
+  <div class='full-column'>
+    <div class='force-width'>
+      <span>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+    </div>
+
+    <h1> Search Results:</h1>
+    <% if params["q"].empty? %>
+    	<%= form_tag("/search", method: "get") do %>
+  			<%= label_tag(:q, "Please try again:") %>
+  			<div class='search-bar'>
+  				<%= text_field_tag(:q) %>
+  				<%= submit_tag("Search") %>
+  			</div>
+    	<% end %>
+
+    <% else %>
+
+      <ul>
+        <% product_count = [] %>
+      	<% @products.each do |product| %>
+      		<% product.inspect %>
+      			<div class="product-box">
+      				<li>
+      					<%= image_tag(product.attributes["images"][0].src, height: 50) %>
+      					<div class="product-text-box">
+      						<%= link_to product.title, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "blank" %><br>
+      						<p class='batch-link'><%= link_to "Create / Edit / View Batches", home_path(id: product.id) %></p>
+      					</div>
+      				</li>
+      			</div>
+            <% product_count << product %>
+      	<% end %>
+      </ul>
+
+      <% if product_count.count == 0 %>
+        <h2>No results found<h2>
+        <%= link_to "Back to products", root_path %>
+      <% end %>
+
+    <% end %>
+
+    </div>
+</div>
