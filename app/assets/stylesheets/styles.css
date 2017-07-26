@@ -1,19 +1,60 @@
 html {
-  color: #212B35;
-  font-family: Montserrat, Helvetica, sans-serif;
+  color: #637381;
+  font-family: 'Roboto', Helvetica, sans-serif;
 }
 
-body {
-  width: 90%;
-  margin: auto;
+div {
+  display: inline-block;
+}
+
+.main-page {
+  width: 95%;
+  max-width: 1000px;
+  margin: 1.5rem;
+  background-color: white;
+  border-radius: .4rem;
+  -webkit-box-shadow: 0px 5px 30px 2px rgba(138, 138, 138, .3);
+  -moz-box-shadow: 0px 5px 30px 2px rgba(138, 138, 138, .3);
+  box-shadow: 0px 5px 30px 2px rgba(138, 138, 138, .3);
+}
+
+.full-column {
+  padding: 2rem;
+}
+
+.nav-bar {
+  display: inline-block;
+  float: right;
+  margin-top: 1rem;
+}
+
+.nav-bar li {
+  display: inline-block;
+  padding-right: 1rem;
+  font-size: 1rem;
+}
+
+h1 {
+  display: inline-block;
+  color: #212B35;
+  font-size: 2rem;
+  font-weight: 400;
+  float: left;
+}
+
+h2 {
+  clear: both;
+  color: #919EAB;
+  font-size: 1.5rem;
+  font-weight: 300;
 }
 
 a {
-  color: #212B35;
+  color: #00848E;
 }
 
 a:hover {
-  color: #00848E;
+  color: #47C1BF;
 }
 
 ul {
@@ -38,36 +79,36 @@ img {
 
 input#q, input#batch_start_date, input#batch_end_date, input#batch_min_quantity {
   clear: both;
-  width: 98%;
-  padding: 1.5rem 0 1.5rem 1.4rem;
-  margin: .5rem 0 .5rem .1rem;
+  width: 100%;
+  padding: 1.5rem;
+  margin-left: .3rem;
+  margin-top: 1.5rem;
+  margin-bottom: .5rem;
   font-size: 1rem;
   font-family: Montserrat, Helvetica, sans-serif;
-  border: 2.5px solid rgba(195,207,216,0.3);
-  border-radius: 1px;
+  border: 1.5px solid rgba(195,207,216,0.3);
+  border-radius: 0.2rem;
   display: inline-block;
-  float: left;
-  vertical-align: top;
+  box-sizing: border-box;
 }
 
 input[type="submit"] {
   width: 100%;
   height: 4.2rem;
   border: none;
-  border-radius: 1px;
-  margin: .5rem 0 1rem 0;
-  font-size: 1rem;
+  border-radius: .2rem;
+  font-size: 1.5rem;
   display: inline-block;
   float: left;
   vertical-align: top;
   margin-top: .59rem;
-  margin-left: .5rem;
-  background-color: #47C1BF;
+  margin-left: .3rem;
+  background-color: #5C6AC4;
   color: white;
 }
 
 input[type="submit"]:hover {
-  background-color: #00848E;
+  background-color: #202E78;
 }
 
 label {
@@ -85,6 +126,7 @@ label {
   clear: both;
   overflow: hidden;
   margin-bottom: 3px;
+  width: 100%;
 }
 
 .product-box:hover {
@@ -107,15 +149,6 @@ label {
   margin: auto;
   margin-left: -.1rem;
   width: 99%;
-  padding-bottom: 4rem;
-}
-
-.batch-link a {
-  color: #00848E;
-}
-
-.batch-link a:hover {
-  color: #47C1BF;
 }
 
 .batch-list {
@@ -123,21 +156,10 @@ label {
   float: left;
 }
 
-.active-batch {
-  width: 50%;
-  float: left:
-}
-
-.dotted {
-  margin-top: 5rem;
-  border-top: .5px dashed #DFE4E8;
-  width: 98%;
-  clear: both;
-}
-
-.dotted2 {
+hr {
   margin-top: 1rem;
-  border-top: .5px dashed #DFE4E8;
+  margin-bottom: 1rem;
+  border-top: .2px solid #F9FAFB;
   width: 98%;
   clear: both;
 }
@@ -146,6 +168,58 @@ label {
   clear: both;
 }
 
-.p-heading {
-  color: #5C6AC4;
+.content-right {
+  background-color: yellow;
+  float: left;
+  width: 30%;
+  display: inline-block;
+}
+
+.view-box {
+  float: right;
+}
+
+.view-box p {
+  margin-top: 0.1rem;
+  margin-left: .5rem;
+  color: #212b35;
+}
+
+.product-link-box {
+  float: left;
+  margin-top: 1.8rem;
+  margin-left: 1rem;
+}
+
+.product-link-box-batch {
+  float: left;
+  margin-top: 0;
+  margin-left: 1rem;
+}
+
+.force-width {
+  visibility: hidden;
+  margin-top: -4rem;
+}
+
+.home-show {
+  margin-top: -1.5rem;
+  width: 100%;
+}
+
+.batch-heading {
+  margin-top: -.5rem;
+}
+
+.field, .actions {
+  width: 66%;
+}
+
+.button {
+  width: 100%;
+}
+
+.batch-details li {
+  display: inline-block;
+  padding: 2rem;
 }

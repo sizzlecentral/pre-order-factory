@@ -9,50 +9,65 @@
 	</script>
 <% end %>
 
-<h2 class='product-title'><%= link_to @product.title, "https://#{@shop_session.url}/admin/products/#{@product.id}", target: "blank" %></h2>
+<div class='main-page'>
+  <div class='full-column'>
+    <div class='force-width'>
+      <span>--------------------------------------------------------------------------------------------------------------------</span>
+    </div>
 
-<div class='active-batch'>
-  <% if @batches.count > 0 %>
-    <strong><p class='p-heading'>View the current batch of this product:<p></strong>
-      <% @batches.each do |batch| %>
-        <% if batch.end_date > Date.today %>
-          <div>
-            <hr class="dotted2">
-            <%= link_to "Batch # #{batch.id} - Start date: #{batch.start_date} / End date: #{batch.end_date}", batch_path(id: batch.id) %>
+    <div class='home-show'>
+
+      <h1><%= @product.title %></h1>
+
+      <%= link_to("https://#{@shop_session.url}/admin/products/#{@product.id}", target: "blank") do %>
+        <div class='product-link-box'>
+          <div class='view-box'>
+            <p>View Product</p>
           </div>
-        <% end %>
+          <div class='view-box'>
+            <svg width="20px" height="20px">
+              <path d="M17.928 9.628C17.836 9.398 15.61 4 9.998 4S2.163 9.4 2.07 9.628c-.094.24-.094.505 0 .744C2.162 10.602 4.387 16 10 16s7.836-5.4 7.928-5.628c.094-.24.094-.505 0-.744zM9.998 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-6c-1.103 0-2 .896-2 2s.897 2 2 2a2 2 0 1 0 0-4z"></path>
+            </svg>
+          </div>
+        </div>
       <% end %>
-  <% end %>
-  <br>
-  <br>
-</div>
 
-<div class='clearfix'></div>
+      <hr>
 
-<div class="batch-list">
-  <strong><p class='p-heading'>Create a new pre-order batch for this product:</p></strong>
-  <hr class="dotted2">
-  <div class="batch-form">
-    <%= render 'form', {batch: @batch, product: @product} %>
+      <div class='current-batch'>
+        <% if @batches.count > 0 %>
+          <h2>View the current batch of this product:</h2>
+          <br>
+            <% @batches.each do |batch| %>
+              <% if batch.end_date > Date.today %>
+                <div>
+                  <%= link_to "Batch # #{batch.id} - Start date: #{batch.start_date} / End date: #{batch.end_date}", batch_path(id: batch.id) %>
+                </div>
+                <br>
+                <br>
+              <% end %>
+            <% end %>
+        <% end %>
+      </div>
+
+      <%= render 'form', {batch: @batch, product: @product} %>
+
+      <hr>
+
+      <% if @batches.count > 0 %>
+        <h2>View previous batches of this product:</h2>
+        <br>
+          <% @batches.each do |batch| %>
+            <% if batch.active == false && batch.end_date < Date.today %>
+              <div>
+                <%= link_to "Batch # #{batch.id} - Start date: #{batch.start_date} / End date: #{batch.end_date}", batch_path(id: batch.id) %>
+              </div>
+            <% end %>
+          <% end %>
+      <% end %>
+      <br>
+      <br>
+
+    </div>
   </div>
-  <br>
-  <br>
-</div>
-
-<div class='clearfix'></div>
-
-<div class="batch-list">
-  <% if @batches.count > 0 %>
-    <strong><p class='p-heading'>View previous batches of this product:<p></strong>
-      <% @batches.each do |batch| %>
-        <% if batch.active == false && batch.end_date < Date.today %>
-          <div>
-            <hr class="dotted2">
-            <%= link_to "Batch # #{batch.id} - Start date: #{batch.start_date} / End date: #{batch.end_date}", batch_path(id: batch.id) %>
-          </div>
-        <% end %>
-      <% end %>
-  <% end %>
-  <br>
-  <br>
 </div>

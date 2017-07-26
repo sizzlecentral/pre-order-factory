@@ -2,19 +2,41 @@
 	<script type="text/javascript">
 		ShopifyApp.ready(function(){
 			ShopifyApp.Bar.initialize({
-				title: "Update Batch",
+				title: "Edit Batch",
 				icon: "<%= asset_path('favicon.ico') %>"
 			});
 		});
 	</script>
 <% end %>
 
-<div class="batch-list">
-  <strong><p class='p-heading'>Update the batch for this product:</p></strong>
-  <hr class="dotted2">
-  <div class="batch-form">
-    <%= render 'form', {batch: @batch} %>
-  </div>
-  <br>
-  <br>
+<div class='main-page'>
+  <div class='full-column'>
+    <div class='force-width'>
+      <span>----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</span>
+    </div>
+
+    <div class='home-show'>
+
+      <h2>Batch # <%= @batch.id %><h2>
+      <h1 class='batch-heading'><%= @product.title %></h1>
+
+      <%= link_to("https://#{@shop_session.url}/admin/products/#{@product.id}", target: "blank") do %>
+        <div class='product-link-box-batch'>
+          <div class='view-box'>
+            <p>View Product</p>
+          </div>
+          <div class='view-box'>
+            <svg width="20px" height="20px">
+              <path d="M17.928 9.628C17.836 9.398 15.61 4 9.998 4S2.163 9.4 2.07 9.628c-.094.24-.094.505 0 .744C2.162 10.602 4.387 16 10 16s7.836-5.4 7.928-5.628c.094-.24.094-.505 0-.744zM9.998 14a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm0-6c-1.103 0-2 .896-2 2s.897 2 2 2a2 2 0 1 0 0-4z"></path>
+            </svg>
+          </div>
+        </div>
+      <% end %>
+
+      <%= render 'formedit', {batch: @batch} %>
+      <br>
+      <br>
+
+    </div>
+  <div>
 </div>
