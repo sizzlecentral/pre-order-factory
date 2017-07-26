@@ -12,15 +12,23 @@
 <div class='main-page'>
   <div class='full-column'>
 
+    <h1>Search Products</h1>
+
+    <div class='nav-bar'>
+      <ul>
+        <a href=''><li>Help Center</li></a>
+        <a href=''><li>FAQ</li></a>
+        <a href=''><li>Support</li></a>
+        <a href=''><li>Documentation</li></a>
+      </ul>
+    </div>
+
     <%= form_tag("/search", method: "get") do %>
-    		<%= label_tag(:q, "Search Products:") %>
         <div class='search-bar'>
       		<%= text_field_tag(:q) %>
       		<%= submit_tag("Search") %>
         </div>
     <% end %>
-
-    <hr class='dotted'>
 
     <ul>
       <% @products.each do |product| %>

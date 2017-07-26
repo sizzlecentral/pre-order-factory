@@ -1,6 +1,6 @@
 html {
-  color: #212B35;
-  font-family: Montserrat, Helvetica, sans-serif;
+  color: #637381;
+  font-family: 'Roboto', Helvetica, sans-serif;
 }
 
 div {
@@ -21,12 +21,31 @@ div {
   padding: 2rem;
 }
 
-a {
+.nav-bar {
+  display: inline-block;
+  float: right;
+  margin-top: 1rem;
+}
+
+.nav-bar li {
+  display: inline-block;
+  padding-right: 1rem;
+  font-size: 1rem;
+}
+
+h1 {
+  display: inline-block;
   color: #212B35;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+a {
+  color: #00848E;
 }
 
 a:hover {
-  color: #00848E;
+  color: #47C1BF;
 }
 
 ul {
@@ -75,12 +94,12 @@ input[type="submit"] {
   vertical-align: top;
   margin-top: .59rem;
   margin-left: .3rem;
-  background-color: #47C1BF;
+  background-color: #5C6AC4;
   color: white;
 }
 
 input[type="submit"]:hover {
-  background-color: #00848E;
+  background-color: #202E78;
 }
 
 label {
@@ -121,14 +140,6 @@ label {
   margin: auto;
   margin-left: -.1rem;
   width: 99%;
-}
-
-.batch-link a {
-  color: #00848E;
-}
-
-.batch-link a:hover {
-  color: #47C1BF;
 }
 
 .batch-list {
