@@ -1,7 +1,29 @@
 <h1> Search Results </h1>
+<% if params["q"].empty? %>
+	<%= flash[:alert] = "Please type your product" %>
 
-<pre>
-<% @products.each do |product| %>
-<%= product.inspect %>
-<% end %>
-</pre>
+	<%= form_tag("/search", method: "get") do %>
+			<%= label_tag(:q, "Search Products:") %>
+			<div class='search-bar'>
+				<%= text_field_tag(:q) %>
+				<%= submit_tag("Search") %>
+			</div>
+			<% end %>
+
+<% else %>
+
+<ul>
+	<% @products.each do |product| %>
+		<% product.inspect %>
+			<div class="product-box">
+				<li>
+					<%= image_tag(product.attributes["images"][0].src, height: 50) %>
+					<div class="product-text-box">
+						<%= link_to product.title, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "blank" %><br>
+						<p class='batch-link'><%= link_to "Create / Edit / View Batches", home_path(id: product.id) %></p>
+					</div>
+				</li>
+			</div>
+	<% end %>
+</ul>
+	<% end %>
