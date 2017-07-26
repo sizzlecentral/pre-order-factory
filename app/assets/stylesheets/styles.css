@@ -7,12 +7,9 @@ div {
   display: inline-block;
 }
 
-main {
-  width: 100%;
-}
-
 .main-page {
   width: 95%;
+  max-width: 1000px;
   margin: 1.5rem;
   background-color: white;
   border-radius: .4rem;
@@ -42,6 +39,14 @@ h1 {
   color: #212B35;
   font-size: 2rem;
   font-weight: 400;
+  float: left;
+}
+
+h2 {
+  clear: both;
+  color: #919EAB;
+  font-size: 1.5rem;
+  font-weight: 300;
 }
 
 a {
@@ -160,7 +165,7 @@ label {
 hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
-  border-top: .2px solid #DFE4E8;
+  border-top: .2px solid #F9FAFB;
   width: 98%;
   clear: both;
 }
@@ -187,10 +192,29 @@ hr {
 .view-box p {
   margin-top: 0.1rem;
   margin-left: .5rem;
+  color: #212b35;
 }
 
 .product-link-box {
-  float: right;
+  float: left;
   margin-top: 1.8rem;
-  margin-right: 1rem;
+  margin-left: 1rem;
+}
+
+.force-width {
+  visibility: hidden;
+  margin-top: -4rem;
+}
+
+.home-show {
+  margin-top: -1.5rem;
+  width: 100%;
+}
+
+.field, .actions {
+  width: 66%;
+}
+
+.button {
+  width: 100%;
 }
