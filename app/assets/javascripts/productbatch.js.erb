@@ -45,10 +45,10 @@ document.addEventListener("DOMContentLoaded", function () {
           var clock = document.createElement('p');
           clock.id = "clock";
           aboveProductDescription.prepend(clock);
-          clock.style.color = "purple";
-          clock.style.border = "5px solid green"
+          clock.style.color = '#212B35';
+          // clock.style.border = "5px solid green"
           clock.style.textAlign = "center"
-          clock.style.fontSize = "1.5em"
+          clock.style.fontSize = "1rem"
           clock.style.fontWeight = "strong"
           var countDownDate = new Date(activeBatch[0].end_date + " 23:59:59").getTime();
           // Update the count down every 1 second
@@ -62,18 +62,24 @@ document.addEventListener("DOMContentLoaded", function () {
               var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
               var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
               var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+              var leftToSell = (activeBatch[0].min_quantity - activeBatch[0].num_sold)
+              if (leftToSell < 0) {
+                leftToSell = 0;
+              }
               // Display the result in the element with id="demo"
-              if (days >= 1) {
-                  clock.innerHTML = days + " DAYS Left!";
+              if (days > 1) {
+                  clock.innerHTML = days + " Days Left | " + activeBatch[0].num_sold + " Sold | " + leftToSell + " To Go";
+              } else if (days === 1) {
+                  clock.innerHTML = days + " Day Left | " + activeBatch[0].num_sold + " Sold | " + leftToSell + " To Go";
               } else if (days < 1) {
-                  clock.innerHTML = hours + "HOURS Left!";
+                  clock.innerHTML = hours + "Hours Left | " + activeBatch[0].num_sold + " Sold | " + leftToSell + " To Go";
               } else if (hours < 1) {
-                  clock.innerHTML = minutes + "MINUTES LEFT! ";
+                  clock.innerHTML = minutes + "Minutes Left | " + activeBatch[0].num_sold + " Sold | " + leftToSell + " To Go";
               } else if (minutes < 1) {
-                  clock.innerHTML = seconds + "SECONDS LEFT ";
+                  clock.innerHTML = seconds + "Seconds Left | " + activeBatch[0].num_sold + " Sold | " + leftToSell + " To Go";
               } else if (distance < 0) {
                   clearInterval(x);
-                  clock.innerHTML = "Pre Sale is Over";
+                  clock.innerHTML = "Pre Sale Has Ended";
               }
           }, 1000);
 
@@ -83,15 +89,15 @@ document.addEventListener("DOMContentLoaded", function () {
             var myBar = document.createElement("div");
             var progressText = document.createElement("p");
             myProgress.append(myBar);
-            myBar.append(progressText);
+            // myBar.append(progressText);
             myProgress.style.width = "100%";
-            myProgress.style.backgroundColor = "purple";
+            myProgress.style.backgroundColor = "#DFE4E8";
             myBar.style.width = ".5%";
-            myBar.style.backgroundColor = "red";
-            myBar.style.height = "25px";
+            myBar.style.backgroundColor = "#919EAB";
+            myBar.style.height = "1rem";
             myBar.style.borderRadius = "20px";
             myProgress.style.borderRadius = "20px";
-            progressText.innerHTML = amountLoaded + "%";
+            // progressText.innerHTML = amountLoaded + "%";
             progressText.style.textAlign = "center";
             progressText.style.color = "black";
             if (amountLoaded === 100) {
@@ -112,9 +118,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             move(amountLoaded);
             // OUTPUT APPENDED TO DIV
-            var heading = document.createElement('h1');
-            heading.innerHTML = " This is where we add PRE ORDER TEXT";
-            aboveProductDescription.prepend(heading);
+            var spacer = document.createElement('br');
+            // heading.innerHTML = " This is where we add PRE ORDER TEXT";
+            aboveProductDescription.prepend(spacer);
             addButton.innerHTML = 'Pre-Order';
             aboveProductDescription.prepend(myProgress);
             aboveProductDescription.prepend(clock);

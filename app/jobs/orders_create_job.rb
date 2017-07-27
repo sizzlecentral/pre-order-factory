@@ -6,12 +6,13 @@ class OrdersCreateJob < ActiveJob::Base
       line_items = webhook[:line_items]
       line_items.each do |item|
         product_id = item[:product_id]
+        product_quantity = item[:quantity]
         activeBatch = Batch.where(product_id: product_id, active: true)
         activeBatch.each do |batch|
           if batch.num_sold.nil?
-            batch.update(num_sold: 1)
+            batch.update(num_sold: product_quantity)
           else
-            batch.update(num_sold: (batch.num_sold + 1))
+            batch.update(num_sold: (batch.num_sold + product_quantity))
           end
         end
       end
