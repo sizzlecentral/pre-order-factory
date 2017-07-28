@@ -62,21 +62,27 @@ document.addEventListener("DOMContentLoaded", function () {
               var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
               var seconds = Math.floor((distance % (1000 * 60)) / 1000);
               var leftToSell = (activeBatch[0].min_quantity - activeBatch[0].num_sold)
+              if (activeBatch[0].num_sold >= 1) {
+                var amountSold = activeBatch[0].num_sold;
+              } else {
+                var amountSold = 0;
+              }
+
               var percentageOfGoal = Math.round((activeBatch[0].num_sold) / (activeBatch[0].min_quantity) * 100);
               if (leftToSell < 0) {
                 leftToSell = 0;
               }
               // Display the result in the element with id="demo"
               if (days > 1) {
-                  clock.innerHTML = days + " Days Left | " + activeBatch[0].num_sold + " Sold | " + leftToSell + " to Go | " + percentageOfGoal + "% of Goal";
+                  clock.innerHTML = days + " Days Left | " + amountSold + " Sold | " + leftToSell + " to Go | " + percentageOfGoal + "% of Goal";
               } else if (days === 1) {
-                  clock.innerHTML = days + " Day Left | " + activeBatch[0].num_sold + " Sold | " + leftToSell + " to Go | " + percentageOfGoal + "% of Goal";
+                  clock.innerHTML = days + " Day Left | " + amountSold + " Sold | " + leftToSell + " to Go | " + percentageOfGoal + "% of Goal";
               } else if (days < 1) {
-                  clock.innerHTML = hours + "Hours Left | " + activeBatch[0].num_sold + " Sold | " + leftToSell + " to Go | " + percentageOfGoal + "% of Goal";
+                  clock.innerHTML = hours + "Hours Left | " + amountSold + " Sold | " + leftToSell + " to Go | " + percentageOfGoal + "% of Goal";
               } else if (hours < 1) {
-                  clock.innerHTML = minutes + "Minutes Left | " + activeBatch[0].num_sold + " Sold | " + leftToSell + " to Go | " + percentageOfGoal + "% of Goal";
+                  clock.innerHTML = minutes + "Minutes Left | " + amountSold + " Sold | " + leftToSell + " to Go | " + percentageOfGoal + "% of Goal";
               } else if (minutes < 1) {
-                  clock.innerHTML = seconds + "Seconds Left | " + activeBatch[0].num_sold + " Sold | " + leftToSell + " to Go | " + percentageOfGoal + "% of Goal";
+                  clock.innerHTML = seconds + "Seconds Left | " + amountSold + " Sold | " + leftToSell + " to Go | " + percentageOfGoal + "% of Goal";
               } else if (distance < 0) {
                   clearInterval(x);
                   clock.innerHTML = "Pre-Sale Has Ended";
@@ -88,20 +94,22 @@ document.addEventListener("DOMContentLoaded", function () {
             var myProgress = document.createElement("div");
             var myBar = document.createElement("div");
             var progressText = document.createElement("p");
+
             myProgress.append(myBar);
             myProgress.style.width = "100%";
             myProgress.style.backgroundColor = "#DFE4E8";
             myBar.style.width = ".5%";
-            myBar.style.backgroundColor = "#919EAB";
+
             myBar.style.maxWidth = '100%';
             myBar.style.height = "1rem";
             myBar.style.borderRadius = "20px";
             myProgress.style.borderRadius = "20px";
             progressText.style.textAlign = "center";
             progressText.style.color = "black";
-            if (amountLoaded === 100) {
-                progressText.innerHTML = "GOAL ACHIEVED";
+            if (amountLoaded > 0) {
+              myBar.style.backgroundColor = "#919EAB";
             }
+
             // ^^ THIS CAN BE ANIMATED ON LOAD
             function move(amountLoaded) {
                 var width = 1;
