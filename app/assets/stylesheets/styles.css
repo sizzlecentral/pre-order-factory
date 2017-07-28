@@ -229,9 +229,14 @@ hr {
 }
 
 #error_explanation {
+  clear: both;
   color: #BF0711;
 }
 
 .current-batch {
   width: 100%;
+}
+
+.batch-title {
+  display: block;
 }
