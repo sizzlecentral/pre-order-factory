@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+<body>
+
+<h2>Contact your customers:</h2>
+
+<form method="POST" action="/batches/<%= @batch.id %>/order_mailer">
+	<input type="text" name="subject" placeholder="Subject">
+	<br>
+	<input type="text" name="body" placeholder="Message"></textarea>
+	<br>
+	<button type="submit">Send</button>
+</form>
+
+</html>
