@@ -42,7 +42,7 @@ class Batch < ApplicationRecord
   def valid_start_date
     if start_date?
       validation = start_date.to_time
-      if validation.past?
+      if validation < Date.today
         errors.add(:start_date, ' must be in the future')
       else
         return true
