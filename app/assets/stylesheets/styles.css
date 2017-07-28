@@ -223,3 +223,7 @@ hr {
   display: inline-block;
   padding: 2rem;
 }
+
+.field_with_errors {
+    width: 100%;
+}
