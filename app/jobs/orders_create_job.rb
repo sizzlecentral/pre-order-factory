@@ -10,9 +10,9 @@ class OrdersCreateJob < ActiveJob::Base
         activeBatch = Batch.where(product_id: product_id, active: true)
         activeBatch.each do |batch|
           if batch.num_sold.nil?
-            batch.update(num_sold: product_quantity)
+            batch.update!(num_sold: product_quantity)
           else
-            batch.update(num_sold: (batch.num_sold + product_quantity))
+            batch.update!(num_sold: (batch.num_sold + product_quantity))
           end
         end
       end
