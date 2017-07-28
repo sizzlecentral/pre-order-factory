@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   if ( !window.updatingPreOrderElems ) {
      window.updatingPreOrderElems = true;
 
-for (i=0; i < preOrderGrid.length - 1; i++){
+for (i=0; i < preOrderGrid.length; i++){
   $.ajax({
       url: 'https://00bac4ac.ngrok.io/batches/product/' + parseInt(preOrderGrid[i].getAttribute('data-id')),
       method: 'GET',
