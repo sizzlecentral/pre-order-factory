@@ -34,23 +34,22 @@
 
       <hr>
 
-      <div class='current-batch'>
-        <% if @batches.count > 0 %>
-          <h2>View the current batch of this product:</h2>
-          <br>
-            <% @batches.each do |batch| %>
-              <% if batch.end_date > Date.today %>
-                <div>
-                  <%= link_to "Batch # #{batch.id} - Start date: #{batch.start_date} / End date: #{batch.end_date}", batch_path(id: batch.id) %>
-                </div>
-                <br>
-                <br>
-              <% end %>
-            <% end %>
-        <% end %>
-      </div>
-
-      <%= render 'form', {batch: @batch, product: @product} %>
+      <% if @batches.count == 0 %>
+         <%= render 'form', {batch: @batch, product: @product} %>
+       <% elsif @batches.count > 0 %>
+         <h2>View the current batch of this product:</h2>
+         <br>
+           <% @batches.each do |batch| %>
+             <% if batch.end_date > Date.today && batch.active %>
+               <div>
+                 <%= link_to "Batch # #{batch.id} - Start date: #{batch.start_date} / End date: #{batch.end_date}", batch_path(id: batch.id) %>
+               </div>
+               <br>
+               <br>
+             <% end %>
+           <% end %>
+       <% end %>
+     </div>
 
       <hr>
 

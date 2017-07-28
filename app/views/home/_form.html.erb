@@ -10,8 +10,6 @@
     </div>
   <% end %>
 
-  <hr>
-
   <h2>Create a new batch for this product:</h2>
 
   <div class="field">
@@ -19,8 +17,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :active %><br />
-    <%= f.check_box :active %><br />
+    <%= f.hidden_field :active, :value => false %>
   </div>
 
   <br>
