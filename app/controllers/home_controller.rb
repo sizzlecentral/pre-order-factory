@@ -51,12 +51,9 @@ class HomeController < ShopifyApp::AuthenticatedController
     @new_batch_id = @batch.id
     if @batch.save
       Batch.where(product_id: @id).each do |batch|
-         if batch.id == @new_batch_id
-           batch.update(active: true)
-         else
-           batch.update(active:false)
-         end
-       end
+        batch.update(active:false)
+      end
+      Batch.where(product_id: @id).last.update(active: true)
       flash[:alert] = "The batch has been created"
       redirect_to home_path(id: params[:batch][:product_id])
     else

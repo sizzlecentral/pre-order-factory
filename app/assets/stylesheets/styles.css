@@ -231,3 +231,7 @@ hr {
 #error_explanation {
   color: #BF0711;
 }
+
+.current-batch {
+  width: 100%;
+}
