@@ -46,7 +46,6 @@ document.addEventListener("DOMContentLoaded", function () {
           clock.id = "clock";
           aboveProductDescription.prepend(clock);
           clock.style.color = '#212B35';
-          // clock.style.border = "5px solid green"
           clock.style.textAlign = "center"
           clock.style.fontSize = "1rem"
           clock.style.fontWeight = "strong"
@@ -90,7 +89,6 @@ document.addEventListener("DOMContentLoaded", function () {
             var myBar = document.createElement("div");
             var progressText = document.createElement("p");
             myProgress.append(myBar);
-            // myBar.append(progressText);
             myProgress.style.width = "100%";
             myProgress.style.backgroundColor = "#DFE4E8";
             myBar.style.width = ".5%";
@@ -99,7 +97,6 @@ document.addEventListener("DOMContentLoaded", function () {
             myBar.style.height = "1rem";
             myBar.style.borderRadius = "20px";
             myProgress.style.borderRadius = "20px";
-            // progressText.innerHTML = amountLoaded + "%";
             progressText.style.textAlign = "center";
             progressText.style.color = "black";
             if (amountLoaded === 100) {
@@ -121,7 +118,6 @@ document.addEventListener("DOMContentLoaded", function () {
             move(amountLoaded);
             // OUTPUT APPENDED TO DIV
             var spacer = document.createElement('br');
-            // heading.innerHTML = " This is where we add PRE ORDER TEXT";
             aboveProductDescription.prepend(spacer);
             addButton.innerHTML = 'Pre-Order';
             aboveProductDescription.prepend(myProgress);

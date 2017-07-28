@@ -57,7 +57,6 @@ class HomeController < ShopifyApp::AuthenticatedController
            batch.update(active:false)
          end
        end
-
       flash[:alert] = "The batch has been created"
       redirect_to home_path(id: params[:batch][:product_id])
     else
