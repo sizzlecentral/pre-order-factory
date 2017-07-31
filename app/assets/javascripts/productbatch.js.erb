@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     $.ajax({
-        url: 'https://00bac4ac.ngrok.io/batches/product/' + parseInt(preOrderFactory.getAttribute('data-id')),
+        url: 'https://pre-order-factory.herokuapp.com/batches/product/' + parseInt(preOrderFactory.getAttribute('data-id')),
         method: 'GET',
         dataType: 'JSON'
     }).done(function (responsedata) {

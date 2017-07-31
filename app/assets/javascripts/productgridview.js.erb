@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 for (i=0; i < preOrderGrid.length; i++){
   $.ajax({
-      url: 'https://00bac4ac.ngrok.io/batches/product/' + parseInt(preOrderGrid[i].getAttribute('data-id')),
+      url: 'https://pre-order-factory.herokuapp.com/batches/product/' + parseInt(preOrderGrid[i].getAttribute('data-id')),
       method: 'GET',
       dataType: 'JSON'
   }).done(function(productbatches){

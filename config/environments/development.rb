@@ -2,7 +2,7 @@ Rails.application.configure do
 	# Settings specified here will take precedence over those in config/application.rb.
 
 
-  config.public_url = 'https://00bac4ac.ngrok.io'
+  config.public_url = 'https://pre-order-factory.herokuapp.com/'
 
   config.shopify_api_key = ENV["SHOPIFY_API_KEY"]
   config.shopify_secret = ENV["SHOPIFY_SECRET"]
