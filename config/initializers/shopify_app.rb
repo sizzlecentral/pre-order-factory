@@ -5,6 +5,6 @@ ShopifyApp.configure do |config|
   config.scope = "read_orders, read_products, read_customers, read_themes, write_themes"
   config.embedded_app = true
   config.webhooks = [
-    {topic: 'orders/create', address: 'https://00bac4ac.ngrok.io/webhooks/orders_create', format: 'json'},
+    {topic: 'orders/create', address: 'https://pre-order-factory.herokuapp.com/webhooks/orders_create', format: 'json'},
   ]
 end
