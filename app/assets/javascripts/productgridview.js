@@ -94,10 +94,6 @@ for (i=0; i < preOrderGrid.length; i++){
         progressText.style.textAlign = "center";
         progressText.style.color = "black";
 
-        if (amountLoaded === 100) {
-            progressText.innerHTML = "GOAL ACHIEVED";
-        }
-
         // ^^ THIS CAN BE ANIMATED ON LOAD
         function move(amountLoaded) {
             var width = 1;
@@ -120,15 +116,9 @@ for (i=0; i < preOrderGrid.length; i++){
         document.querySelector("[data-id='" + activeBatch[0].product_id +"']").append(myProgress);
         document.querySelector("[data-id='" + activeBatch[0].product_id +"']").append(clock);
 
-
       }
 
-
-
-
   });
-
-
 
 // ProductGrid for loop end
 }
