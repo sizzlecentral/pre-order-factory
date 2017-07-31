@@ -74,7 +74,6 @@ class HomeController < ShopifyApp::AuthenticatedController
 		@products = ShopifyAPI::Product.find(:all)
 		@orders = ShopifyAPI::Order.find(:all)
 		@emails = @orders.map { |order| order.attributes[:email] }
-			# make a loop to send everyone an email
 			@emails.each do |email|
 				OrderMailer.admin_email(email, params[:subject], params[:body]).deliver
 			end

@@ -71,7 +71,7 @@
 				<% order_count = [] %>
 				<% @orders.each do |order| %>
 					<% order.line_items.each do |item| %>
-						<% if item.attributes['product_id'] == @product.id && order.created_at.to_date > @batch.start_date && order.created_at.to_date < @batch.end_date %>
+						<% if item.attributes['product_id'] == @product.id && order.created_at.to_date >= @batch.start_date && order.created_at.to_date <= @batch.end_date %>
 							<li>
 								<%= link_to order.name, "https://#{@shop_session.url}/admin/orders/#{order.id}", target: "blank" %> - <%= order.customer.first_name %> <%= order.customer.last_name %> - <%= order.created_at.to_date %>
 							</li>

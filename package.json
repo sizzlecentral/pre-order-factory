@@ -1,5 +1,10 @@
 {
   "name": "pre-order-factory",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "medium-editor": "^5.23.1",
+    "moment": "^2.18.1",
+    "pikaday": "^1.6.1",
+    "tinymce": "^4.6.4"
+  }
 }

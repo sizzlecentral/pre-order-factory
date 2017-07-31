@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	</head>
+<head>
+	<script src="/path/to/tinymce/tinymce.min.js"></script>
+	<script type="text/javascript">
+	tinymce.init({
+		selector: '#mytextarea'
+	});
+	</script>
+</head>
 <body>
 
 <h2>Contact your customers:</h2>
@@ -9,9 +15,10 @@
 <form method="POST" action="/batches/<%= @batch.id %>/order_mailer">
 	<input type="text" name="subject" placeholder="Subject">
 	<br>
-	<input type="text" name="body" placeholder="Message"></textarea>
+	<textarea name="body" placeholder="Message" id="mytextarea"></textarea>
 	<br>
 	<button type="submit">Send</button>
 </form>
 
+</body>
 </html>

@@ -1,5 +1,5 @@
 class OrderMailer < ApplicationMailer
-		default from: 'joehanson902@gmail.com'
+		default from: 'preorderfactory@gmail.com'
 
 	def admin_email(email, subject, body)
 		mail(to: email, subject: subject, body: body)

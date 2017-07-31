@@ -2,7 +2,7 @@ Rails.application.configure do
 	# Settings specified here will take precedence over those in config/application.rb.
 
 
-	config.public_url = 'https://c1993b45.ngrok.io'
+	config.public_url = 'https://9e73b541.ngrok.io'
 
 	config.shopify_api_key = ENV["SHOPIFY_API_KEY"]
 	config.shopify_secret = ENV["SHOPIFY_SECRET"]
@@ -57,4 +57,16 @@ Rails.application.configure do
 	# Use an evented file watcher to asynchronously detect changes in source code,
 	# routes, locales, etc. This feature depends on the listen gem.
 	config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+	config.action_mailer.perform_deliveries = true
+	config.action_mailer.delivery_method = :smtp
+	config.action_mailer.smtp_settings = {
+			:address              => "smtp.gmail.com",
+			:port                 => 587,
+			:domain               => "gmail.com",
+			:user_name            => "preorderfactorty@gmail.com",
+			:password             => ENV['gmail_password'],
+			:authentication       => :plain,
+			:enable_starttls_auto => true
+	}
 end
