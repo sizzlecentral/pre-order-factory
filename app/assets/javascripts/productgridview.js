@@ -82,7 +82,9 @@ for (i=0; i < preOrderGrid.length; i++){
         myProgress.style.width = "100%";
         myProgress.style.backgroundColor = "#DFE4E8";
         myBar.style.width = ".5%";
-        myBar.style.backgroundColor = "#919EAB";
+        if (amountLoaded > 0) {
+          myBar.style.backgroundColor = "#919EAB";
+        }
         myBar.style.maxWidth = '100%';
         myBar.style.height = ".5rem";
         myBar.style.marginTop = "0.5rem";
