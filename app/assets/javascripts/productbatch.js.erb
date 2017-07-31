@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+// document.addEventListener("DOMContentLoaded", function () {
     $.ajax({
         url: 'https://pre-order-factory.herokuapp.com/batches/product/' + parseInt(preOrderFactory.getAttribute('data-id')),
         method: 'GET',
@@ -132,4 +132,4 @@ document.addEventListener("DOMContentLoaded", function () {
             aboveProductDescription.prepend(clock);
         };
     });
-});
+// });
