@@ -20,6 +20,10 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'rack-cors'
 gem 'rails_12factor', group: :production
+gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
+gem 'sweet-alert2-rails'
+gem 'jquery-rails'
+gem 'sweetify'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

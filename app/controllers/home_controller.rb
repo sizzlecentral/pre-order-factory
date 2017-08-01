@@ -37,7 +37,7 @@ class HomeController < ShopifyApp::AuthenticatedController
     @id = batch_params[:product_id]
     @product = ShopifyAPI::Product.find(@id)
     if @batch.update(batch_params)
-      flash[:alert] = "The batch has been updated"
+      sweetalert_success('Your resource is updated and available.', 'Batch was successfully updated', persistent: 'Done')
       redirect_to home_path(id: @id)
     else
       render 'home/batchedit'
@@ -54,7 +54,7 @@ class HomeController < ShopifyApp::AuthenticatedController
         batch.update(active:false)
       end
       Batch.where(product_id: @id).last.update(active: true)
-      flash[:alert] = "The batch has been created"
+      sweetalert_success('Your resource is created and available', 'Batch was successfully created', persistent: 'Done')
       redirect_to home_path(id: params[:batch][:product_id])
     else
       @product = ShopifyAPI::Product.find(@id)
